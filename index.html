@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rafeli Bolos – Confeitaria artesanal</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+ <div class="bar">
+  <a class="logo" href="#inicio">Rafeli Bolos</a>
+  <div class="search"><input id="q" type="search" placeholder="Buscar bolo, torta, doce…" aria-label="Pesquisar"></div>
+  <button class="cartbtn" id="openCart">🛒 Carrinho (<span id="count">0</span>)</button>
+  <nav>
+   <a href="#inicio">Início</a><a href="#quem-somos">Quem somos</a><a href="#produtos">Produtos</a><a href="#cardapio">Cardápio</a><a href="#encomenda">Encomendas</a><a href="#horarios">Horários</a><a href="#contatos">Contatos</a>
+  </nav>
+ </div>
+</header>
+
+<main>
+<section id="inicio" class="hero">
+ <div>
+  <h1>Rafeli Bolos</h1>
+  <p>Bolos caseiros, tortas e doces feitos na hora, com ingredientes frescos e muito carinho.</p>
+  <p><a class="btn" href="#produtos">Ver produtos</a><a class="btn alt" href="#cardapio">Cardápio</a></p>
+ </div>
+ <div class="cake">
+  <img src="logo.png" width="400" height="400">
+ </div>
+</section>
+
+<section id="quem-somos">
+ <h2>Quem somos</h2>
+ <p class="sub">A Rafeli Bolos nasceu na cozinha de casa, com receitas de família e a vontade de adoçar o dia das pessoas. Hoje fazemos bolos para o café da tarde, aniversários e encomendas especiais, sempre artesanais, sem conservantes e assados no mesmo dia.</p>
+</section>
+
+<section id="produtos">
+ <h2>Produtos</h2>
+ <p class="sub">Escolha seus favoritos e adicione ao carrinho.</p>
+ <div class="grid" id="prodGrid"></div>
+ <div class="empty" id="prodEmpty">Nenhum produto encontrado. Tente outra palavra.</div>
+</section>
+
+<section id="cardapio">
+ <h2>Cardápio</h2>
+ <p class="sub">Tudo o que servimos na casa e para levar.</p>
+ <div class="menu" id="menu"></div>
+ <div class="empty" id="menuEmpty">Nenhum item do cardápio encontrado.</div>
+</section>
+
+<section id="encomenda">
+ <h2>Faça sua encomenda</h2>
+ <p class="sub">Bolos personalizados, tortas e doces para festas. Preencha os dados e enviaremos o pedido para o nosso WhatsApp. Pedimos 3 dias de antecedência.</p>
+ <div class="order" id="orderBox">
+  <label>Seu nome<input id="o-nome" autocomplete="name"></label>
+  <label>Telefone / WhatsApp<input id="o-tel" type="tel" autocomplete="tel" placeholder="(11) 94394-4490"></label>
+  <label>O que você quer encomendar
+   <select id="o-tipo"><option>Bolo decorado</option><option>Bolo simples</option><option>Torta</option><option>Cupcakes</option><option>Docinhos para festa</option><option>Outro</option></select>
+  </label>
+  <label>Sabor / recheio<input id="o-sabor" placeholder="Ex.: chocolate com morango"></label>
+  <label>Tamanho / quantidade<input id="o-qtd" placeholder="Ex.: 20 fatias ou 50 docinhos"></label>
+  <label>Data desejada<input id="o-data" type="date"></label>
+  <label>Retirada
+   <select id="o-ent"><option>Retirada na loja</option></select>
+  </label>
+  <label id="o-endwrap" style="display:none">Endereço de entrega<input id="o-end" autocomplete="street-address"></label>
+  <label class="full">Mensagem no bolo (opcional)<input id="o-msg" placeholder="Ex.: Parabéns, Ana!"></label>
+  <label class="full">Observações (opcional)<textarea id="o-obs" placeholder="Tema, cores, restrições alimentares…"></textarea></label>
+  <p class="err full" id="o-err" role="alert"></p>
+  <div class="full"><button class="btn" id="o-send">Enviar encomenda pelo WhatsApp</button></div>
+ </div>
+</section>
+
+<section id="horarios">
+ <h2>Horário de atendimento</h2>
+ <p class="sub">Encomendas com 3 dias de antecedência.</p>
+ <div class="hours">
+  <div><span>Segunda a sabado</span><b>10h – 20h</b></div>
+  <div><span>Domingo</span><b>-Somente retirada de encomendas das: 
+    09h – 14h</b></div>
+ </div>
+</section>
+
+<section id="contatos">
+ <h2>Contatos e redes sociais</h2>
+ <p class="sub">Fale com a gente para tirar dúvidas ou fazer sua encomenda.</p>
+ <div class="contact">
+  <div class="card"><div class="body"><h3>WhatsApp</h3><a href="https://wa.me/5511943944490">(11) 94394-4490</a></div></div>
+  <div class="card"><div class="body"><h3>E-mail</h3><a href="mailto:rafelibolos@gmail.com">rafelibolos@gmail.com</a></div></div>
+  <div class="card"><div class="body"><h3>Endereço</h3><span>Rua Piracicaba, 300 – São Paulo, SP</span></div></div>
+ </div>
+</section>
+</main>
+<footer>© 2026 Rafeli Bolos · Feito com carinho</footer>
+
+<div id="drawer">
+ <div class="bg" id="closeBg"></div>
+ <aside>
+  <h2 style="font-size:28px">Seu carrinho</h2>
+  <div id="items"></div>
+  <div class="total"><span>Total</span><span id="total">R$ 0,00</span></div>
+  <button class="btn" id="checkout">Finalizar pelo WhatsApp</button>
+  <button class="btn alt" id="clear" style="margin:0">Esvaziar carrinho</button>
+  <button class="btn alt" id="closeCart" style="margin:0">Continuar comprando</button>
+ </aside>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
